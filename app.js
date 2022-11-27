@@ -265,10 +265,12 @@ function loadFile(input) {
   img.src = URL.createObjectURL(file);
   canvas.addEventListener("click", drawImg);
 }
-function drawImg() {
+function drawImg(event) {
+  const x = event.offsetX;
+  const y = event.offsetY;
   if (dImg == true) {
     ctx.globalAlpha = 0.2;
-    ctx.drawImage(img, CANVAS_SIZE_X / 2, CANVAS_SIZE_Y / 2);
+    ctx.drawImage(img, x, y);
     dImg = false;
     ctx.globalAlpha = 1;
   }
